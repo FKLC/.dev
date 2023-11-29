@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#000000" />
+		<title>Fatih Victor Kilic</title>
+    <meta name="description" content="third-year student" />
+
+    <link rel="shortcut icon" type="image/png" href="https://avatars.githubusercontent.com/u/29578493?v=4">
+
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Questrial&display=swap" />
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1498590880827-3f79fdcd7fbe?q=0&fm=webp&cs=tinysrgb&w=1080" />
+    <link rel="preload" as="font" href="fa.woff" />
+
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Questrial&display=swap);
+      @font-face {
+        font-family: fa;
+        src: url(fa.woff) format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+      }
+      [class^="fa-"] {
+        font-family: fa !important;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .fa-star:before {
+        content: "\f005";
+      }
+      .fa-map-marker:before {
+        content: "\f041";
+      }
+      .fa-group:before {
+        content: "\f0c0";
+      }
+      .fa-users:before {
+        content: "\f0c0";
+      }
+      .fa-chain:before {
+        content: "\f0c1";
+      }
+      .fa-link:before {
+        content: "\f0c1";
+      }
+      .fa-envelope:before {
+        content: "\f0e0";
+      }
+      .fa-code:before {
+        content: "\f121";
+      }
+      .fa-code-branch:before {
+        content: "\f126";
+      }
+      .fa-user-tie:before {
+        content: "\f27e";
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        background: var(--bg-color);
+        color: var(--text-color);
+        max-width: 100vw;
+        overflow-x: hidden;
+        align-items: center;
+        font-family: Questrial, sans-serif;
+        line-height: 1.2;
+      }
+      #profile {
+        width: 24vw;
+        padding: 4vh 3vw;
+        height: 92vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        background: var(--background-image) center center;
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        position: fixed;
+        color: #fff !important;
+      }
+      #display {
+        width: 64vw;
+        padding: 4vh 3vw;
+        height: 92vh;
+        display: inline-block;
+        padding-left: 33vw;
+      }
+      #display h1 {
+        font-size: 50px;
+        color: var(--text-color);
+        font-weight: 700;
+        font-family: Questrial, sans-serif;
+      }
+      #footer {
+        width: 100%;
+        padding: 8vh 0;
+        text-align: center;
+      }
+      #footer a {
+        color: var(--text-color) !important;
+        text-decoration: none;
+        font-family: Questrial, sans-serif;
+        font-weight: 700;
+      }
+      #profile_img {
+        width: 180px;
+        height: 180px;
+        border-radius: 5px;
+        background-size: cover !important;
+      }
+      #profile div {
+        font-weight: 700;
+        margin: 1.5vh 0;
+      }
+      #username {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      #username span {
+        font-size: 24px;
+      }
+      #userbio {
+        font-size: 26px;
+        font-family: Questrial, sans-serif;
+        width: 100%;
+      }
+      #about {
+        font-size: 18px;
+        font-family: Questrial, sans-serif;
+      }
+      #about span {
+        margin: 1vh 0;
+        display: block;
+      }
+      #about span i {
+        font-size: 16px;
+      }
+      #work {
+        margin: 2vh 0;
+        padding: 4vh 0 !important;
+      }
+      #forks {
+        margin: 2vh 0;
+        padding: 4vh 0 !important;
+      }
+      .projects {
+        columns: 2;
+      }
+      .projects section {
+        width: 85%;
+        padding: 2.5vh 5%;
+        display: inline-block;
+        border-radius: 5px;
+        color: var(--text-color);
+        border: 1px solid rgb(0, 0, 0, 0.08);
+        box-shadow: 0 0 0 rgb(0, 0, 0, 0);
+        transition: 0.4s ease-in-out;
+        margin: 2vh 0;
+        transform: scale(1);
+      }
+      .projects section:hover {
+        cursor: pointer;
+        border: 1px solid rgb(0, 0, 0, 0);
+        box-shadow: 0 15px 35px rgb(0, 0, 0, 0.06);
+        transform: scale(1.03);
+      }
+      .section_title {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 1vh 0;
+        word-wrap: break-word;
+      }
+      .about_section {
+        font-size: 18px;
+        font-family: Questrial, sans-serif;
+        margin: 2vh 0;
+        font-weight: 700;
+        word-wrap: break-word;
+      }
+      .bottom_section {
+        margin: 1vh 0;
+        font-size: 14px;
+        word-wrap: break-word;
+      }
+      .bottom_section span {
+        margin-right: 20px;
+        font-weight: 700;
+      }
+      .bottom_section span i {
+        font-size: 16px;
+      }
+      ::selection {
+        color: var(--bg-color);
+        background: var(--text-color);
+      }
+      @media (max-width: 800px) {
+        #profile {
+          width: 90vw;
+          padding: 4vh 5vw;
+          height: 60vh;
+          text-align: center;
+          position: relative;
+        }
+        #display {
+          width: 90vw;
+          padding: 4vh 5vw;
+          height: auto;
+          display: inline-block;
+          padding-left: 5vw;
+        }
+        #profile_img {
+          width: 120px;
+          height: 120px;
+          margin: 0 auto !important;
+        }
+        #work {
+          margin: 0;
+        }
+        .projects {
+          columns: 1;
+        }
+        .projects section {
+          width: 88%;
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-color);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--text-color);
+      }
+      :root {
+        --bg-color: rgb(10, 10, 10);
+        --text-color: #fff;
+        --blog-gray-color: rgb(180, 180, 180);
+        --background-image: linear-gradient(
+            90deg,
+            rgba(10, 10, 10, 0.6),
+            rgb(10, 10, 10, 1)
+          ),
+          url(https://images.unsplash.com/photo-1498590880827-3f79fdcd7fbe?q=0&fm=webp&cs=tinysrgb&w=1080);
+        --background-background: linear-gradient(
+            0deg,
+            rgba(10, 10, 10, 1),
+            rgba(10, 10, 10, 0.6)
+          ),
+          url("") center center fixed;
+        --height: 50vh;
+      }
+      #display h1 {
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: #fff;
+      }
+      .projects section {
+        background: #141414;
+      }
+      @media (max-width: 800px) {
+        :root {
+          --background-image: linear-gradient(
+              0deg,
+              rgba(10, 10, 10, 1),
+              rgb(10, 10, 10, 0)
+            ),
+            url("") !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="profile">
+      <div id="profile_img" style="background: url(&quot;https://avatars.githubusercontent.com/u/29578493?v=4&quot;) center center;"></div>
+      <div id="username"><span style="display:block;">Fatih Victor Kilic</span>@FKLC</div>
+      <div id="userbio">third-year student</div>
+      <div id="about"><span style="display:block;"><i class="fa-users"></i> University of Toronto</span><span style="display:block;"><i class="fa-link"></i> fklc.dev</span><span style="display:block;"><i class="fa-map-marker"></i> Toronto</span></div>
+    </div>
+    <div id="display">
+      <div id="work">
+        <h1>Work.</h1>
+        <div class="projects" id="work_section">
+          <a
+            href="https://github.com/FKLC/Torrent-To-Google-Drive-Downloader"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">
+                Torrent-To-Google-Drive-Downloader
+              </div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Simple notebook to stream torrent files to Google Drive using
+                  Google Colab.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Jupyter Notebook</span
+                >
+                <span><i class="fa-star"></i> 358</span>
+                <span><i class="fa-code-branch"></i> 397</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/WhatsAppToDiscord"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">WhatsAppToDiscord</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >WhatsAppToDiscord is a Discord bot that uses WhatsApp Web as
+                  a bridge between Discord and WhatsApp.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 194</span>
+                <span><i class="fa-code-branch"></i> 66</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/AnyAPI"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">AnyAPI</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >AnyAPI is a library that helps you to write any API wrapper
+                  with ease and in pythonic way.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 131</span>
+                <span><i class="fa-code-branch"></i> 7</span>
+              </div>
+            </section>
+          </a>
+          <a href="https://github.com/FKLC/IGQL" target="_blank" rel="noopener">
+            <section>
+              <div class="section_title">IGQL</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Unofficial Instagram GraphQL API to collet data without
+                  authentication</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 83</span>
+                <span><i class="fa-code-branch"></i> 10</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/RustPyVM"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">RustPyVM</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >A Python Virtual Machine implemented in Rust. For learning
+                  purposes.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Rust</span
+                >
+                <span><i class="fa-star"></i> 34</span>
+                <span><i class="fa-code-branch"></i> 1</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/DiscordConsoleHacks"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">DiscordConsoleHacks</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Little JavaScript snippets to achieve various things</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 8</span>
+                <span><i class="fa-code-branch"></i> 2</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/AdlessSpotifyPlayer"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">AdlessSpotifyPlayer</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Adless Spotify Player by setting volume to zero while an ad
+                  is playing</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 7</span>
+                <span><i class="fa-code-branch"></i> 2</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/serviceless-distributor"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">serviceless-distributor</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >A simple library to run exact functions over all server nodes
+                  without any service</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 2</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/SpotiFork"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">SpotiFork</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >A web app to fork multiple Spotify playlists to one!</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Vue</span
+                >
+                <span><i class="fa-star"></i> 2</span>
+                <span><i class="fa-code-branch"></i> 3</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/NamedAssignments"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">NamedAssignments</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Really small library to implement NamedExpressions in PEP 572
+                  for Python &lt;=3.7
+                </span>
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 1</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/Redirector"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">Redirector</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Redirector Bot is a discord server moderation bot. It helps
+                  you to keep clean your chat by removing mentions and DM'ing to
+                  the users if the message content is only mention of users.
+                  Also it can redirect messages to other channels.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 1</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/sqlite-to-json"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">sqlite-to-json</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Query SQLite databases with prebuilt binaries</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Go</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/Clusterify"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">Clusterify</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Clusterify is a web app that automatically separates your
+                  Spotify playlists into clusters based on their audio
+                  features</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a href="https://github.com/FKLC/.dev" target="_blank" rel="noopener">
+            <section>
+              <div class="section_title">.dev</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Same as https://github.com/FKLC/nodeless-gitfolio repo. Just
+                  to keep it untouched</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/django-distributed-file-based-cache"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">
+                django-distributed-file-based-cache
+              </div>
+              <div class="about_section">
+                <span style="display: block"
+                  >A simple Django app to sync file caches over all nodes.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/graphql-prisma-select-fields"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">graphql-prisma-select-fields</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Helper library to convert GraphQL document fields to Prisma's
+                  select argument</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/expo-secure-store-chunked"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">expo-secure-store-chunked</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Store longer secure content in your Expo app. An extension to
+                  expo-secure-store.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> TypeScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/CSGOBombAlert"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">CSGOBombAlert</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >CS:GO Bomb Alert is a program that alerts you 30 and 35
+                  seconds after bomb planted in CS:GO.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Go</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/turnin-button-fixer"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">turnin-button-fixer</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Google Docs turn-in button fixer for users using a shared
+                  computer</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/Textify"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">Textify</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Textify is a web app that automatically creates a playlist
+                  from the text you provide</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/AttributeRouter"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">AttributeRouter</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >An Attribute Router/Chainer For Any Class</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/AdCommTracker"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">AdCommTracker</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >A capsule tracker for Adventure Communist game</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> HTML</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/TwitchAutoShutdown"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">TwitchAutoShutdown</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Shutdown your computer automatically when your target stream
+                  ends!</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Rust</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/sign-files-action"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">sign-files-action</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Create signatures of files with a private key using GitHub
+                  Actions</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/WhatColorIsThis"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">WhatColorIsThis</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Easily learn the name of the color you click on. Useful for
+                  colorblinds.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> JavaScript</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/FullScreenColor"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">FullScreenColor</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Turn your monitor into a colored light source!</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> HTML</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/django-serviceless-distributor"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">django-serviceless-distributor</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >A simple Django app to run exact functions over all server
+                  nodes without any service.</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/djangoless-signing"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">djangoless-signing</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Same Django signing API but without Django</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Python</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+          <a
+            href="https://github.com/FKLC/OpenWithGoogleDocs"
+            target="_blank"
+            rel="noopener"
+          >
+            <section>
+              <div class="section_title">OpenWithGoogleDocs</div>
+              <div class="about_section">
+                <span style="display: block"
+                  >Open document files automatically in Google Docs,
+                  Spreadsheets and Slides</span
+                >
+              </div>
+              <div class="bottom_section">
+                <span style="display: inline-block"
+                  ><i class="fa-code"></i> Go</span
+                >
+                <span><i class="fa-star"></i> 0</span>
+                <span><i class="fa-code-branch"></i> 0</span>
+              </div>
+            </section>
+          </a>
+        </div>
+      </div>
+      <div id="footer">
+        <a href="https://github.com/imfunniee" target="_blank" rel="noopener"
+          >made on earth by a human</a
+        >
+      </div>
+    </div>
+
+    <script>
+      function renderRepo(repo) {
+        return `
+					<a href="${repo.html_url}" target="_blank" rel="noopener">
+						<section>
+							<div class="section_title">${repo.name}</div>
+							<div class="about_section">
+									<span style="display:block;">${repo.description}</span>
+							</div>
+							<div class="bottom_section">
+								<span style="display:inline-block;"><i class="fa-code"></i> ${repo.language}</span>
+								<span><i class="fa-star"></i> ${repo.stargazers_count}</span>
+								<span><i class="fa-code-branch"></i> ${repo.forks}</span>
+							</div>
+						</section>
+					</a>`;
+      }
+
+      const username = "FKLC";
+      // Fetches data about user itself to render left side of page.
+      fetch(`https://api.github.com/users/${username}`)
+        .then((response) => response.json())
+        .then((user) => {
+          document.title = user.name;
+          document.querySelector("meta[name='description']").setAttribute("content", user.bio);
+          document.querySelector("link[rel='shortcut icon']").setAttribute("href", user.avatar_url);
+          document.getElementById("profile_img").style = `background: url(${user.avatar_url}) center;`;
+          document.getElementById("username").innerHTML = `<span style="display:block;">${user.name}</span>@${user.login}`;
+          document.getElementById("userbio").innerHTML = user.bio;
+					document.getElementById("about").innerHTML = [
+						user.company && `<span style="display:block;"><i class="fa-users"></i> ${user.company}</span>`,
+						user.email && `<span style="display:block;"><i class="fa-envelope"></i> ${user.email}</span>`,
+						user.blog && `<span style="display:block;"><i class="fa-link"></i> ${user.blog}</span>`,
+						user.location && `<span style="display:block;"><i class="fa-map-marker"></i> ${user.location}</span>`,
+						user.hireable && `<span style="display:block;"><i class="fa-user-tie"></i> Available for hire</span>`
+					].join("");
+        });
+
+      // Fetches only non-fork repositories sorted by star count.
+      fetch(
+        `https://api.github.com/search/repositories?q=user:${username} fork:false&sort=stars`
+      )
+        .then((response) => response.json())
+        .then((repositories) => {
+          const repos = [];
+          for (let repo of repositories.items) {
+            repos.push(renderRepo(repo));
+          }
+          const repositoriesDom = document.getElementById("work_section");
+          repositoriesDom.innerHTML = repos.join("");
+        });
+    </script>
+  </body>
+</html>
