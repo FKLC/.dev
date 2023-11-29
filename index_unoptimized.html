@@ -291,7 +291,7 @@
       <div id="profile_img" style="background: url(&quot;https://avatars.githubusercontent.com/u/29578493?v=4&quot;) center center;"></div>
       <div id="username"><span style="display:block;">Fatih Victor Kilic</span>@FKLC</div>
       <div id="userbio">third-year student</div>
-      <div id="about"><span style="display:block;"><i class="fa-users"></i> University of Toronto</span><span style="display:block;"><i class="fa-link"></i> fklc.dev</span><span style="display:block;"><i class="fa-map-marker"></i> Toronto</span></div>
+      <div id="about"><span><i class="fa-users"></i> University of Toronto</span><span><i class="fa-link"></i> fklc.dev</span><span><i class="fa-map-marker"></i> Toronto</span></div>
     </div>
     <div id="display">
       <div id="work">
@@ -942,7 +942,7 @@
 						<section>
 							<div class="section_title">${repo.name}</div>
 							<div class="about_section">
-									<span style="display:block;">${repo.description}</span>
+									<span>${repo.description}</span>
 							</div>
 							<div class="bottom_section">
 								<span style="display:inline-block;"><i class="fa-code"></i> ${repo.language}</span>
@@ -965,11 +965,11 @@
           document.getElementById("username").innerHTML = `<span style="display:block;">${user.name}</span>@${user.login}`;
           document.getElementById("userbio").innerHTML = user.bio;
 					document.getElementById("about").innerHTML = [
-						user.company && `<span style="display:block;"><i class="fa-users"></i> ${user.company}</span>`,
-						user.email && `<span style="display:block;"><i class="fa-envelope"></i> ${user.email}</span>`,
-						user.blog && `<span style="display:block;"><i class="fa-link"></i> ${user.blog}</span>`,
-						user.location && `<span style="display:block;"><i class="fa-map-marker"></i> ${user.location}</span>`,
-						user.hireable && `<span style="display:block;"><i class="fa-user-tie"></i> Available for hire</span>`
+						user.company && `<span><i class="fa-users"></i> ${user.company}</span>`,
+						user.email && `<span><i class="fa-envelope"></i> ${user.email}</span>`,
+						user.blog && `<span><i class="fa-link"></i> ${user.blog}</span>`,
+						user.location && `<span><i class="fa-map-marker"></i> ${user.location}</span>`,
+						user.hireable && `<span><i class="fa-user-tie"></i> Available for hire</span>`
 					].join("");
         });
 
